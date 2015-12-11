@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<SkynetUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Portfolio>
+    <Assets>
+      <Asset>
+        <Acronym>AGG</Acronym>
+        <Percentage>25</Percentage>
+      </Asset>
+      <Asset>
+        <Acronym>JKD</Acronym>
+        <Percentage>39</Percentage>
+      </Asset>
+      <Asset>
+        <Acronym>EWM</Acronym>
+        <Percentage>36</Percentage>
+      </Asset>
+    </Assets>
+    <TradeDate>2014-06-28T10:44:23.5300429+02:00</TradeDate>
+  </Portfolio>
+  <MifidScore>131</MifidScore>
+  <NumberOfETFs>5</NumberOfETFs>
+  <Budget>100000</Budget>
+  <PersonalInfo>
+    <FullName>Michael Sundgaard</FullName>
+    <AddressLine>Mosede Kærvej 37</AddressLine>
+    <ZipCode />
+    <City />
+    <Country />
+    <Email>michaelringholm@gmail.com</Email>
+    <PhoneNumber>26836997</PhoneNumber>
+  </PersonalInfo>
+</SkynetUser>

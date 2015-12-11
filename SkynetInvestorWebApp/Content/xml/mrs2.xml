@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SkynetUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Portfolio>
+    <Assets />
+    <TradeDate>2014-08-18T22:13:39.749733+02:00</TradeDate>
+  </Portfolio>
+  <MifidScore>100</MifidScore>
+  <NumberOfETFs>3</NumberOfETFs>
+</SkynetUser>

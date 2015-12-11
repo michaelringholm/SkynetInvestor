@@ -1,0 +1,23 @@
+3. become a customer (account)
+
+4. Finalize (Trade)
+
+
+
+Login
+-----
+Summary (Portfolio)
+- Past performance
+- Benchmark
+- Future performance
+
+Transactions (Mailbox)
+- Pending mails
+- Mail history
+
+Plan (Personal data)
+- Contact information
+- Risk Profile
+
+Documents
+- Agreements

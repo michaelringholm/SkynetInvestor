@@ -1,0 +1,71 @@
+﻿@model SkynetInvestor.Models.MifidQuestionaireViewModel
+@using OpusMagus.WizardManager;
+
+<table align="center" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <form action="#" method="POST">
+                <input type='hidden' name="issubmit" value="1">
+                <!-- Tabs -->
+                <div id="wizard" class="swMain">
+                    <ul>
+                        @{var sectionIndex = 0;}
+                        @foreach(var questionSection in Model.QuestionSections){
+                            sectionIndex++;
+                            var sectionHref = "#step-" + sectionIndex; 
+                            
+                            <li>
+                                <a href=@sectionHref>
+                                    <label class="stepNumber">@sectionIndex</label>
+                                    <span style="font-size: 12pt;" class="stepDesc">
+                                        @questionSection.Title<br />
+                                        <small>Description</small>
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        
+                    </ul>
+                    @{sectionIndex = 0;}
+                    @foreach(var questionSection in Model.QuestionSections){
+                        sectionIndex++;
+                        
+                        <div style="height: 500px;" id="step-@sectionIndex">
+                        <h2 class="StepTitle">Step @sectionIndex: @questionSection.Title</h2>
+                        <div>
+                            <div id="un"></div>
+                            @foreach(var question in questionSection.Questions)
+                            {
+                                <div style="margin-left: 10px; margin-top: 10px; font-size: 16px;">@question.Description</div>
+                                <div class="question" data-question-id="@question.Id" data-question-type="@question.GetType().Name">
+                                @if (question is DropDownQuestion)
+                                {
+                                    var options = ((DropDownQuestion)question).Options;
+                                    <select>
+                                        @foreach (var option in options)
+                                        {
+                                            <option value="@option.Value" data-score="@option.Score">@option.Title</option>
+                                        }
+                                    </select>
+                                }
+                                
+                                @if (question is RadioButtonQuestion)
+                                {
+                                    var radioButtonQuestion = ((RadioButtonQuestion)question);
+                                    var options = radioButtonQuestion.Options;
+                                    foreach(var option in options) {
+                                        <div><input type="radio" name="@radioButtonQuestion.GroupName" value="@option.Value" data-score="@option.Score">@option.Title</div>
+                                    }
+                                }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    }
+                </div>
+                <!-- End SmartWizard Content -->
+            </form>
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<SkynetUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Portfolio>
+    <TradeDate>0001-01-01T00:00:00</TradeDate>
+  </Portfolio>
+  <MifidScore>100</MifidScore>
+  <NumberOfETFs>3</NumberOfETFs>
+  <Budget>10000</Budget>
+  <PersonalInfo>
+    <FullName>wwwww</FullName>
+    <AddressLine />
+    <ZipCode />
+    <City />
+    <Country />
+    <Email />
+    <PhoneNumber />
+  </PersonalInfo>
+</SkynetUser>

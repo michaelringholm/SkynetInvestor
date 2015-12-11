@@ -1,0 +1,53 @@
+-----------
+Interfaces:
+-----------
+
+------
+INPUT
+------
+<input>
+MIFID-score: 110
+ETF count: 5
+</input>
+
+
+-------
+OUTPUT
+-------
+<output>
+<Cat alloc>
+Stocks: 37,3
+Bonds: 62.7¨
+<Cat alloc>
+<asset alloc>
+EWM 36
+AGG 
+</asset alloc>
+</output>
+
+----------
+Navne:
+----------
+Wealth Solutions (firma)
+Club Wealth (web site+blogs+forum+info)
+Wealth Invest (investering selskab)
+Wealth Asset Allocation Platform (tool)
+
+------------
+Opgaver:
+------------
+- Forecast graf, KMR sender
+- MIFID spørgsmål MRS sender til KMR
+- Mulighed for at vælge demo version af spørgsmål
+- Send link til pretotype
+- Lav forside
+- Who we are - Stig sender tekst
+- FAQ - Stig og kourosh sender tekst
+- Blog og forum
+- You Tube videoer
+- Trade portfolio, KMR, return, date, portfolio
+- Disclaimer, Stig undersøger
+- Input til forside performance chart, med vores algoritme samt SP500 og evt. andre - KMR sender
+- Forsiderubrik 
+
+

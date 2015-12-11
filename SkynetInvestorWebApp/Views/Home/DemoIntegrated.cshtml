@@ -1,0 +1,153 @@
+﻿@model SkynetInvestor.Models.DemoModel
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnPreviousQuestion").click(function () { GoToPreviousQuestion(); });
+            $("#btnNextQuestion").click(function () { GoToNextQuestion(); });
+            $("#wizard").smartWizard("goToStep", (@Model.ActiveStep-0));
+            $("#tbBudget").keypress(function () { SetBudget($("#tbBudget").val()); });
+            $("#tbBudget").focusout(function () { OnBudgetUpdated(); });
+            //$("#pbViewDisclaimer").click(function () { window.location.href = "/Home/Demo"; });
+            //$("#pbViewDisclaimer").click(function () { window.location.href = "/Home/Mifid"; });
+            //pbViewDisclaimer
+            //getRDataAsync(80, 5, PopulateHistoricalPerformanceChart);
+            //$("#wizard").smartWizard("fixHeight");
+
+            //showScoreResult();
+        });
+
+        function OnBudgetUpdated()
+        {
+            SaveDemoInput(GetMIFIDScore(), GetETFCount());
+            PortfolioControl_UpdateCharts();
+        }
+
+        function GoToPreviousQuestion()
+        {
+            var oldQuestionID = GetQuestionID();
+            $("#mifid-question-div-" + oldQuestionID).hide();
+            var newQuestionID = (oldQuestionID * 1) - 1;
+
+            if (newQuestionID == 1)
+            {
+                $("#imgPreviousQuestion").hide();
+            }
+
+            SetQuestionID(newQuestionID);
+            $("#mifid-question-div-" + newQuestionID).show();
+        }
+
+        function GoToNextQuestion() {
+            var oldQuestionID = GetQuestionID();
+            var newQuestionID = (oldQuestionID*1) + 1;
+            $("#imgPreviousQuestion").show();
+            if (newQuestionID > GetMaxQuestionID())
+            {
+                //alert("Done. Now showing MIFID result.");
+                showScoreResult();
+            }
+            else
+            {
+                $("#mifid-question-div-" + oldQuestionID).hide();
+                SetQuestionID(newQuestionID);
+                $("#mifid-question-div-" + newQuestionID).show();
+            }
+
+        }
+
+        function SetQuestionID(questionID)
+        {
+            $("#hfCurrentQuestionID").val(questionID);
+        }
+
+        function GetQuestionID()
+        {
+            var qid = $("#hfCurrentQuestionID").val();
+            return $("#hfCurrentQuestionID").val();
+        }
+
+        function GetMaxQuestionID() {
+            return $("#hfMaxQuestionID").val();
+        }
+    </script>
+}
+
+@{
+    if (Model != null && Model.SkynetUser != null)
+    {
+        <input type="hidden" id="hfMifidScore" value="@Model.SkynetUser.MifidScore" />
+        <input type="hidden" id="hfETFCount" value="@Model.SkynetUser.NumberOfETFs" />
+        <input type="hidden" id="hfBudget" value="@Model.SkynetUser.Budget" />
+    }
+}
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="margin-left: -30px;">
+    <tr>
+        <td>
+            <form action="#" method="POST">
+                <input type='hidden' name="issubmit" value="1">
+                <!-- Tabs -->
+                <div id="wizard" class="swMain">
+                    <ul>
+                        <li>
+                            <a href="#step-1">
+                                <label class="stepNumber">1</label>
+                                <span class="stepDesc">
+                                    Profile<br />
+                                    <small>[sub text]</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2">
+                                <label class="stepNumber">2</label>
+                                <span class="stepDesc">
+                                    Portfolio<br />
+                                    <small>[sub text]</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-3">
+                                <label class="stepNumber">3</label>
+                                <span class="stepDesc">
+                                    Account<br />
+                                    <small>[sub text]</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-4">
+                                <label class="stepNumber">4</label>
+                                <span class="stepDesc">
+                                    Trade<br />
+                                    <small>[sub text]</small>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="step-1" style="height: 600px;">
+                        <h2 class="StepTitle">Step 1: Profile</h2>
+                        @Html.Partial("ProfileControl", Model.ProfileModel)
+                    </div>
+                    <div id="step-2" style="height: 600px;">
+                        <h2 class="StepTitle">Step 2: Portfolio</h2>
+                        @Html.Partial("PortfolioControl", new SkynetInvestor.Models.PortfolioModel { })
+                    </div>
+                    <div id="step-3" style="height: 600px;">
+                        <h2 class="StepTitle">Step 3: Account</h2>
+                        @Html.Partial("FinancialAccountControl", new SkynetInvestor.Models.FinancialAccountModel { })
+                    </div>
+                    <div id="step-4" style="height: 600px;">
+                        <h2 class="StepTitle">Step 4: Trade</h2>
+                        @Html.Partial("TradeControl", new SkynetInvestor.Models.TradeModel { })
+                    </div>
+                </div>
+                <!-- End SmartWizard Content -->
+            </form>
+
+        </td>
+    </tr>
+</table>
+

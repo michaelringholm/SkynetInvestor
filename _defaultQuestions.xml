@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ArrayOfQuestionSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestionSection>
+    <Title>Financial situation</Title>
+    <Questions>
+      <Question xsi:type="DropDownQuestion">
+        <Description>How old are you</Description>
+        <Options>
+          <DropDownOption>
+            <Title>Sehr gut</Title>
+            <Value>MASTER</Value>
+          </DropDownOption>
+          <DropDownOption>
+            <Title>Schlehct</Title>
+            <Value>APPRENTICE</Value>
+          </DropDownOption>
+        </Options>
+      </Question>
+    </Questions>
+  </QuestionSection>
+  <QuestionSection>
+    <Title>Section 2</Title>
+    <Questions>
+      <Question xsi:type="DropDownQuestion">
+        <Description>Hvor længe har du handlet med aktier?</Description>
+        <Options>
+          <DropDownOption>
+            <Title>10 jahre am meisten</Title>
+            <Value>MASTER</Value>
+          </DropDownOption>
+          <DropDownOption>
+            <Title>10 jahre am mindesten</Title>
+            <Value>APPRENTICE</Value>
+          </DropDownOption>
+        </Options>
+      </Question>
+    </Questions>
+  </QuestionSection>
+</ArrayOfQuestionSection>

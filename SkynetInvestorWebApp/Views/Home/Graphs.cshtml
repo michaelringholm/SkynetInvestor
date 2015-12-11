@@ -1,0 +1,116 @@
+﻿@model SkynetInvestor.Models.GraphsModel
+
+@section Scripts {
+
+    <script type="text/javascript">
+        /*********************************** Highcharts ***************************************/
+        $(document).ready(function () {
+            /* Tabs */
+            $("#tabs").tabs({
+                beforeLoad: function (event, ui) {
+                    ui.jqXHR.error(function () {
+                        ui.panel.html(
+                          "Couldn't load this tab. We'll try to fix this as soon as possible. " +
+                          "If this wouldn't be a demo.");
+                    });
+                }
+            });
+
+            /* Slider */
+            $("#slider").slider({
+                value: 5,
+                min: 2,
+                max: 8,
+                step: 1,
+                change: function (event, ui) {
+                    $("#amount").val(ui.value);
+                    $("#hfETFCount").val(ui.value);
+                    SaveETFCount(ui.value);
+                    BuildAllCharts();
+                }
+            });
+
+            $("#slider").slider("value", @Model.SkynetUser.NumberOfETFs);
+            $("#amount").val($("#slider").slider("value"));
+            
+            
+            // Build piechart
+            $("#mifidScore").html(@Model.SkynetUser.MifidScore);
+            $("#btnTradePortfolio").click(function() {tradePortfolio();});
+            InitColors();
+            BuildAllCharts();
+            //alert("Now we will show a line chart");
+            //setTimeout(function () { BuildLineChart('#pie-chart-container1'); }, 2000);
+            //BuildLineChart('#container');            
+        });
+        /************************************** End of Highcharts ****************************/
+        
+    </script>
+}
+
+@{
+    ViewBag.Title = "Graphs";
+}
+
+<input type="hidden" id="hfMifidScore" value="@Model.SkynetUser.MifidScore" />
+<input type="hidden" id="hfETFCount" value="@Model.SkynetUser.NumberOfETFs" />
+
+<div style="height: 40px;">
+    <label for="amount" style="line-height: 24px; font-size: 10pt;">ETFs (increment by 1):</label>
+    <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold; font-size: 10pt; line-height: 24px;">
+
+    <div id="slider" style="width: 130px; margin-top: 8px;"></div>
+</div>
+
+<div style="height: 650px; overflow: auto; margin-top: 12px; margin-bottom: 12px;">
+    <div id="tabs" style="margin-top: 8px; height: 630px;">
+        <ul>
+            <li><a href="#tabs-1">Future Performance</a></li>
+            <li><a href="#tabs-2">Historical Performance</a></li>
+            <li><a href="#tabs-3">Summary</a></li>
+            <li><a href="#tabs-4">Portfolio</a></li>
+            <li><a href="#tabs-5">Analytics</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div id="future-performance-chart-container" style="min-width: 310px; height: 400px; max-width: 900px; margin: 0 auto"></div>
+            <div style="margin-top: 12px;">The graph shows the future performance of the strategy. Please note: past performance is no guarantee of future results.</div>
+            <div id="btnTradePortfolio" class="button" style="margin-top: 10px;">Trade portfolio</div>
+        </div>
+        <div id="tabs-2">
+            <div id="historical-performance-chart-container" style="min-width: 310px; height: 400px; max-width: 900px; margin: 0 auto"></div>
+            <div style="margin-top: 12px;">The graph shows the performance of the strategy over the past 5 years. Please note: past performance is no guarantee of future results.</div>
+            <!--<div id="btnTradePortfolio" class="button" style="margin-top: 10px;">Trade portfolio</div>-->
+        </div>
+        <div id="tabs-3">
+            <div id="pie-chart-container1" style="float: left; width: 400px; height: 300px; margin-left: 10px;"></div>
+            <div id="pie-chart-container2" style="float: left; width: 400px; height: 300px; margin-left: 10px;"></div>
+            <div style="clear: both;"></div>
+        </div>
+        <div id="tabs-4" >
+            <table id=" sortable-grid-container" class="tablesorter">
+            <thead>
+                <tr>
+                    <th style="width: 80px;">Assets</th>
+                    <th style="width: 80px;">Fraction</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+                <tbody id="assetListTableBody">
+                    <!-- Data is dynamically inserted by method populateAssetListBody() -->
+                </tbody>
+            </table>
+        </div>
+        <div id="tabs-5">
+            <div id="probability-line-container" style="float: left; min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+            <div id="correlation-matrix-container" style="float: left; min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+            <div id="riskreturn-plot-diagram-container" style="float: left; min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+
+    <div>
+        @TempData["SaveStatus"]
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+﻿@model SkynetInvestor.Models.MemberModel
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        PortfolioControl_Update();
+    });
+</script>
+}
+
+@Html.Partial("TopNavigationControl", null)
+
+<input type="hidden" id="hfMifidScore" value="@Model.SkynetUser.MifidScore" />
+<input type="hidden" id="hfBudget" value="@Model.SkynetUser.Budget" />
+<input type="hidden" id="hfETFCount" value="@Model.SkynetUser.NumberOfETFs" />
+
+<div id="MembersBodyContent" style="margin-top: 12px;">
+    @Html.Partial("SummaryControl", Model)
+</div>

@@ -1,0 +1,72 @@
+﻿@model SkynetInvestor.Models.ProfileModel
+@using OpusMagus.WizardManager;
+
+
+@{
+   // var model = new SkynetInvestor.Models.MifidQuestionaireViewModel();
+   // model.QuestionSections = sections;
+    int sectionIndex = 0;
+    int questionCount = 0;
+    int maxQuestionCount = Model.AllQuestions.Count();
+    String displayText = "display: none;";
+}
+<input type="hidden" id="hfCurrentQuestionID" value="1" />
+<input type="hidden" id="hfMaxQuestionID" value="@maxQuestionCount" />
+
+<div style="float: left; height: 100%; width: 160px; margin-right: 0px; margin-top: 190px; cursor: pointer;" id="btnPreviousQuestion"><img id="imgPreviousQuestion" style="display: none; width: 158px;" src="/Content/images/Arrow-Back-4-icon-512.png" /></div>
+<div style="height: 100%; float: left; vertical-align: middle; margin-top: 0px; border: none; width: 620px; " id="mifidQuestionDiv">        
+    @{sectionIndex = 0;
+foreach (var questionSection in Model.QuestionSections)
+{
+    sectionIndex++;
+    foreach (var question in questionSection.Questions)
+    {
+        questionCount++;
+        String divId = "mifid-question-div-" + questionCount;
+        if (questionCount == 1)
+        {
+            displayText = "display: normal;";
+        }
+        else
+        {
+            displayText = "display: none;";
+        }
+
+        <div style="text-align: center;">
+            <div style="@displayText; border: none;  width: 50%; margin: 0 auto; margin-top: 140px; width: 620px;" id="@divId">
+                <span style="font-size: 16pt;">Question</span> <span style="font-size: 20pt; margin: 0px; padding: 0px;">@questionCount of @maxQuestionCount</span>
+                <div style="margin-left: 10px; margin-top: 10px; font-size: 34pt; margin: 0px; padding: 12px; white-space: pre-wrap;">@question.Description</div>
+                <div class="question" data-question-id="@question.Id" data-question-type="@question.GetType().Name">
+                    @if (question is DropDownQuestion)
+                    {
+                        var options = ((DropDownQuestion)question).Options;
+                        <div style="text-align: left; width: 500px;">
+                            <select style="width: 500px; text-align: left;">
+                                @foreach (var option in options)
+                                {
+                                    <option value="@option.Value" data-score="@option.Score">@option.Title</option>
+                                }
+                            </select>
+                        </div>
+                    }
+
+                    @if (question is RadioButtonQuestion)
+                    {
+                        var radioButtonQuestion = ((RadioButtonQuestion)question);
+                        var options = radioButtonQuestion.Options;
+                        foreach (var option in options)
+                        {
+                            <div style="font-size: 18pt;"><input type="radio" name="@radioButtonQuestion.GroupName" value="@option.Value" data-score="@option.Score">@option.Title</div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+}
+</div>
+<div style="float: right; height: 100%; width: 160px; margin-left: 0px; margin-top: 190px; cursor: pointer;" id="btnNextQuestion"><img src="/Content/images/Arrow-Next-4-icon-512.png" style="width: 158px;" /></div>
+<div style="clear: both;"></div>
+
+                

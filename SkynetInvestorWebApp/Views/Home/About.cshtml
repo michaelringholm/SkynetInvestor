@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnTestCreateUser").click(function () { CreateTestUser(); })
+    });
+
+    function CreateTestUser() {
+        $.ajax({
+            url: "/Home/CreateUser",
+            data: "username=" + $("#testUserName").val() + "&password=" + $("#testPassword").val() + "&email=mrs@ihedge.dk"
+        })
+        .done(function () { })
+        .fail(function (error, textStatus) {
+            showError(error.responseText);
+        })
+        .always(function () {
+            
+        });
+    }
+</script>
+}
+
+<div style="height: 40px;">
+    <h2>@ViewBag.Title.</h2>
+</div>
+<div style="margin-top: 12px; margin-bottom: 12px; font-size: 20px; font-family: Calibri; width: 600px; text-align: justify;">
+    <p>Use this area to provide additional information.</p>
+</div>
+
+<div>
+    <div>Username: <input id="testUserName" type="text" /></div>
+    <div>Password: <input id="testPassword" type="password" /></div>
+    <div id="btnTestCreateUser" class="button">Create user</div>
+</div>

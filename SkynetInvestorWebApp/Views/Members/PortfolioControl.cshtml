@@ -1,0 +1,35 @@
+﻿@model SkynetInvestor.Models.PortfolioModel
+
+<!--<img src="~/Content/images/Portfolio.png" />-->
+
+<div style="border: solid 2px RGB(52,109,164); width: 300px; height: 500px; float: left;">
+    <div style="margin-left: 6px; margin-top: 20px; height: 110px;">
+        <div style="float: left; width: 66px; height: 26px; line-height: 26px; font-weight:bold;">ETFs:</div><div id="etf-slider" style="float: left; width: 184px; line-height: 26px;"></div>
+        <div style="clear: both;"></div>
+        <div style="float: left; width: 66px; height: 26px; line-height: 26px; font-weight: bold;">Risk:</div><div id="risk-level-slider" style="float: left; width: 184px; line-height: 26px;"></div>
+        <div style="clear: both;"></div>
+        <div style="float: left; width: 66px; height: 26px; line-height: 26px; font-weight: bold;">Budget:</div>
+        <div style="float: left; line-height: 26px;"><input id="tbBudget" type="text" value="100000" style="text-align: right; width: 148px;" /></div>
+        <div style="float: left; line-height: 26px; margin-left: 4px;">EUR</div>
+        <div style="clear: both;"></div>
+    </div>
+    <div style="height: 170px; margin-left: 6px; margin-right: 6px; text-align: justify;">
+        Use the sliders to adjust the risk level, and the number of ETFs to invest. Use the amount box to type in the amount you wish to invest.
+    </div>
+    <div id="mifid-gauge-container" style="height: 200px;"></div>
+</div>
+<div style="width: 646px; height: 500px; margin-left: 10px; float: left;">
+    <div id="pie-chart-container1" class="myclass" style="width: 390px; height: 250px; margin: 2px; float: left; border: solid 2px RGB(52,109,164);">
+    </div>
+    <div style="width: 236px; height: 250px; margin: 2px; float: left; border: solid 2px RGB(52,109,164); ">
+        <div id="asset-details-container" style="margin: 2px; overflow: auto; height: 240px;">
+            Click an asset in the pie chart for details.
+        </div>
+    </div>
+    <div id="past-performance-chart-container" style="border: solid 2px RGB(52,109,164); width: 312px; height: 230px; margin: 2px; float: left; ">
+    </div>
+    <div id="future-performance-chart-container" style="border: solid 2px RGB(52,109,164); width: 312px; height: 230px; margin: 2px; float: left;">
+    </div>
+</div>
+<div style="clear: both;"></div>
+

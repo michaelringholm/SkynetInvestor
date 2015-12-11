@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "The Team";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#contact-kmr-header").mouseover(function () { $("#contact-kmr").show(); });
+            $("#contact-kmr-header").mouseout(function () { $("#contact-kmr").hide(); });
+            $("#contact-mrs-header").mouseover(function () { $("#contact-mrs").show(); });
+            $("#contact-mrs-header").mouseout(function () { $("#contact-mrs").hide(); });
+            $("#contact-sa-header").mouseover(function () { $("#contact-sa").show(); });
+            $("#contact-sa-header").mouseout(function () { $("#contact-sa").hide(); });
+        });
+    </script>
+}
+
+<div style="height: 40px;">
+    <h2>@ViewBag.Title.</h2>
+</div>
+
+<div style="margin-top: 24px;">
+    <div style="float: left;">
+        <img src="/Content/images/business-team.jpg" style="width: 620px;" />
+    </div>
+
+    <div style="float: left; width: 260px; margin-left: 20px;">
+        <div style="margin-top: 12px; margin-bottom: 12px; font-size: 20px; font-family: Calibri; width: 600px; text-align: justify;">
+            <div id="contact-kmr-header">
+                <div style="font-weight: bold; font-size: 20px; font-family: Calibri;">Kourosh Marjani Rasmussen</div>
+                <div><a style="color: #000000;" href="mailto:kourosh.rasmussen@betterwealthsolutions.com">kourosh.rasmussen@betterwealthsolutions.com</a></div>
+            </div>
+            <div id="contact-kmr" style="display: none; width: 260px; text-align: left;">
+                <div style="margin-top: 8px; font-style: italic; margin-bottom: 8px;">Founder, research & investment developer.</div>
+                Background in Research and Education combined with experience from Finance Industry.<br /><br />
+                Associate Professor at DTU, Chief Optimization Architect at Schantz and Senior Analyst in Nykredit.<br /><br />
+                Ph.D Applied Mathematics and Master of Science at Technical University of Denmark (DTU).<br /><br />
+                Linkedin xxxxxxxx.
+            </div>
+
+            <div id="contact-mrs-header">
+                <div style="font-weight: bold; font-size: 20px; font-family: Calibri; margin-top: 30px;">Michael Ringholm Sundgaard</div>
+                <div><a style="color: #000000;" href=" mailto:michael.sundgaard@betterwealthsolutions.com">michael.sundgaard@betterwealthsolutions.com</a></div>
+            </div>
+            <div id="contact-mrs" style="display: none; text-align: left; width: 260px; ">
+                <div style="margin-top: 8px; font-style: italic; margin-bottom: 8px;">Founder & technology lead.</div>
+                Background as IT architect and IT consultant from various assignments in the financial sector.<br /><br />
+                Managing director at iHedge, Senior IT architect at BEC and Senior IT Consultant at Nordea and Bank Invest.<br /><br />
+                Computer Sceintist.<br /><br />
+                LinkedIn xxxxx.
+            </div>
+
+            <div id="contact-sa-header">
+                <div style="font-weight: bold; font-size: 20px; font-family: Calibri; margin-top: 30px;">Stig Andersen</div>
+                <div><a style="color: #000000;" href="mailto:stig.andersen@betterwealthsolutions.com">stig.andersen@betterwealthsolutions.com</a></div>
+            </div>
+            <div id="contact-sa" style="display: none; text-align: left; width: 260px; ">
+                <div style="margin-top: 8px; font-style:italic; margin-bottom: 8px;">Founder, sales & business developer.</div>
+                Backgound in investment banking and wealth management combined with digital and it platform selling.<br /><br />
+                Regional head, svp in saxo bank nordics, head business development in hsh nordbank, head of sales in lb kiel and west lb and portfolio manager in bg bank and bikuben.<br /><br />
+                e*mba - aarhus university, graduate diploma in finance (hd) - cbs and executive programs from stanford university.<br /><br />
+                linkedin xxxxx.
+            </div>
+        </div>
+
+    </div>
+    <div style="clear: both;"></div>
+</div>

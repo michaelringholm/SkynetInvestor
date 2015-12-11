@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<ArrayOfQuestionSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestionSection>
+    <Title>Financial situation</Title>
+    <Questions>
+      <Question xsi:type="RadioButtonQuestion">
+        <Id>1</Id>
+        <Description>How old are you?</Description>
+        <Score>0</Score>
+        <Options>
+          <RadioButtonOption>
+            <Score>40</Score>
+            <Title>Under 30yrs</Title>
+            <Value>30</Value>
+            <Checked>true</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>30</Score>
+            <Title>Between 30-45yrs</Title>
+            <Value>30-45</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>20</Score>
+            <Title>Between 45-65yrs</Title>
+            <Value>45-60</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>10</Score>
+            <Title>65+</Title>
+            <Value>65+</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+        </Options>
+        <GroupName>AGE</GroupName>
+      </Question>
+      <Question xsi:type="RadioButtonQuestion">
+        <Id>2</Id>
+        <Description>How do you expect your future income to evolve over the next 5-7 years?</Description>
+        <Score>0</Score>
+        <Options>
+          <RadioButtonOption>
+            <Score>10</Score>
+            <Title>Worsen a bit</Title>
+            <Value>WORSEN</Value>
+            <Checked>true</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>20</Score>
+            <Title>The same</Title>
+            <Value>SAME</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>30</Score>
+            <Title>Improve a little</Title>
+            <Value>IMPROVE_LITTLE</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>40</Score>
+            <Title>Improve significantly</Title>
+            <Value>IMPROVE_MUCH</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+        </Options>
+        <GroupName>FUTURE_INCOME</GroupName>
+      </Question>
+      <Question xsi:type="RadioButtonQuestion">
+        <Id>3</Id>
+        <Description>Assets and liabilities</Description>
+        <Score>0</Score>
+        <Options>
+          <RadioButtonOption>
+            <Score>10</Score>
+            <Title>&lt;10%</Title>
+            <Value>10</Value>
+            <Checked>true</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>20</Score>
+            <Title>10-25%</Title>
+            <Value>10-25</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>30</Score>
+            <Title>25%-40%</Title>
+            <Value>25-40</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+          <RadioButtonOption>
+            <Score>40</Score>
+            <Title>40%-60%</Title>
+            <Value>40-60</Value>
+            <Checked>false</Checked>
+          </RadioButtonOption>
+        </Options>
+        <GroupName>ASSETS_AND_LIABILITIES</GroupName>
+      </Question>
+    </Questions>
+  </QuestionSection>
+</ArrayOfQuestionSection>

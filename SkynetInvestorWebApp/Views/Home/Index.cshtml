@@ -1,0 +1,61 @@
+﻿@using OpusMagus.WizardManager
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pbShowSolutionPage").click(function () { window.location.href = "/Home/ValueCases"; });
+        ShowAjaxLoader("#historical-performance-chart-container");
+        getRDataAsync(140, 3, 100000, PopulateHistoricalPerformanceChart);
+    });
+</script>
+}
+    
+@{
+    ViewBag.Title = "Better Wealth Solutions - Welcome";
+
+}
+<div style="height: 34px; margin-top: -8px;">
+   <h2>e-Advice solutions</h2>
+</div>
+<div style="margin-top: 0px; margin-bottom: 12px; width: 640px; float: left;">    
+    <br />
+    <table class="textTable" style="width: 640px;">
+        <tr>
+            <td class="cellTextHeading" style="font-size: 12pt;">Introduction</td>
+            <td class="cellText" style="font-size: 12pt;">
+                We are dedicated to helping financial institutions and investment companies develop digital, data-driven and automated e-Advice solutions and achieving significant value:
+                <br />
+                <ul>
+                    <li>Revenue growth</li>
+                    <li>Cost savings</li>
+                    <li>
+                        Improve operational efficiency
+                    </li>
+                    <li>
+                        Minimize infrastructure investments
+                    </li>
+                    <li>
+                        Increase product quality
+                    </li>
+                    <li>
+                        Easy go-to-market
+                    </li>
+                    <li>Improve customer loyalty</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="cellTextHeading" style="font-size: 12pt;">Wealth Asset Alocation Platform (WAAP)</td>
+            <td class="cellText" style="font-size: 12pt;">Our first launch is WAAP which is a fully automated asset allocation platform for the direct online usage of investment customers.</td>
+        </tr>
+    </table>
+    
+    <div id="historical-performance-chart-container" style="min-width: 270px; height: 280px; max-width: 620px; padding-top: 20px;"></div>
+    <div style="margin-top: 12px;">The graph shows the performance of the strategy over the past 5 years. Please note: past performance is no guarantee of future results.</div>
+
+    <div id="pbShowSolutionPage" class="pushButton">Next</div>
+</div>
+<div style="float: left; margin-top: 100px;">
+    <img src="/Content/images/business-woman-tall.jpg" style="width: 300px;" />
+</div>
+<div style="clear: both;"></div>

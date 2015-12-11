@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<SkynetUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Portfolio>
+    <Assets />
+    <TradeDate>2014-11-08T20:36:02.4829247+01:00</TradeDate>
+  </Portfolio>
+  <MifidScore>150</MifidScore>
+  <NumberOfETFs>5</NumberOfETFs>
+  <Budget>100000</Budget>
+  <PersonalInfo>
+    <FullName>Susanne Sundgaard</FullName>
+    <AddressLine>Mosede Kærvej 37</AddressLine>
+    <ZipCode>2670</ZipCode>
+    <City>Greve</City>
+    <Country>Denmark</Country>
+    <Email>supdk@hotmail.com</Email>
+    <PhoneNumber>27574065</PhoneNumber>
+  </PersonalInfo>
+</SkynetUser>

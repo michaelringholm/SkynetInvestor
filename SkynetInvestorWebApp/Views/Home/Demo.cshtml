@@ -1,0 +1,165 @@
+﻿@model SkynetInvestor.Models.DemoModel
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnPreviousQuestion").click(function () { GoToPreviousQuestion(); });
+            $("#btnNextQuestion").click(function () { GoToNextQuestion(); });
+            $(document).keydown(function (e) { if (e.keyCode == 37) { GoToPreviousQuestion(); } });
+            $(document).keydown(function (e) { if (e.keyCode == 39) { GoToNextQuestion(); } });
+            $("#wizard").smartWizard("goToStep", (@Model.ActiveStep-0));
+            $("#tbBudget").keypress(function () { SetBudget($("#tbBudget").val()); });
+            $("#tbBudget").focusout(function () { OnBudgetUpdated(); });
+            //$("#pbViewDisclaimer").click(function () { window.location.href = "/Home/Demo"; });
+            //$("#pbViewDisclaimer").click(function () { window.location.href = "/Home/Mifid"; });
+            //pbViewDisclaimer
+            //getRDataAsync(80, 5, PopulateHistoricalPerformanceChart);
+            //$("#wizard").smartWizard("fixHeight");
+
+            //showScoreResult();
+
+            $("#btnSingupAndSubmit").click(function () { SignUpAndSubmit(); });
+        });
+
+        function OnBudgetUpdated()
+        {
+            SaveDemoInput(GetMIFIDScore(), GetETFCount());
+            PortfolioControl_UpdateCharts();
+        }
+
+        function GoToPreviousQuestion()
+        {
+            var oldQuestionID = GetQuestionID();
+            if (oldQuestionID > 1) {
+                $("#mifid-question-div-" + oldQuestionID).hide();
+                var newQuestionID = (oldQuestionID * 1) - 1;
+
+                if (newQuestionID == 1) {
+                    $("#imgPreviousQuestion").hide();
+                }
+
+                SetQuestionID(newQuestionID);
+                $("#mifid-question-div-" + newQuestionID).show();
+            }
+        }
+
+        function GoToNextQuestion() {
+            var oldQuestionID = GetQuestionID();
+            var newQuestionID = (oldQuestionID*1) + 1;
+            $("#imgPreviousQuestion").show();
+            if (newQuestionID > GetMaxQuestionID())
+            {
+                //alert("Done. Now showing MIFID result.");
+                showScoreResult();
+            }
+            else
+            {
+                $("#mifid-question-div-" + oldQuestionID).hide();
+                SetQuestionID(newQuestionID);
+                $("#mifid-question-div-" + newQuestionID).show();
+            }
+
+        }
+
+        function SetQuestionID(questionID)
+        {
+            $("#hfCurrentQuestionID").val(questionID);
+        }
+
+        function GetQuestionID()
+        {
+            var qid = $("#hfCurrentQuestionID").val();
+            return $("#hfCurrentQuestionID").val();
+        }
+
+        function GetMaxQuestionID() {
+            return $("#hfMaxQuestionID").val();
+        }
+
+        function SignUpAndSubmit()
+        {
+            MembersCachePersonalInfo();
+            SaveDemoInput(GetMIFIDScore(), GetETFCount(), GetBudget());
+            $("#signUpAndSubmitLowerDiv").html("<div style=\"color: green;\">Thank you for submitting your data!</div><div style=\"margin-top: 12px;\">Now please take a moment to create your user name and password, please click <a style=\"color: black;\" href=\"/Account/Register/\">here.</a></div>")
+        }
+    </script>
+}
+
+@{
+    if (Model != null && Model.SkynetUser != null)
+    {
+        <input type="hidden" id="hfMifidScore" value="@Model.SkynetUser.MifidScore" />
+        <input type="hidden" id="hfETFCount" value="@Model.SkynetUser.NumberOfETFs" />
+        <input type="hidden" id="hfBudget" value="@Model.SkynetUser.Budget" />
+    }
+}
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="margin-left: -30px;">
+    <tr>
+        <td>
+            <form action="#" method="POST">
+                <input type='hidden' name="issubmit" value="1">
+                <!-- Tabs -->
+                <div id="wizard" class="swMain">
+                    <ul>
+                        <li>
+                            <a href="#step-1">
+                                <label class="stepNumber">1</label>
+                                <span class="stepDesc">
+                                    Investeringsprofil<br />
+                                    <small></small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-2">
+                                <label class="stepNumber">2</label>
+                                <span class="stepDesc">
+                                    Optimal investering<br />
+                                    <small></small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#step-3">
+                                <label class="stepNumber">3</label>
+                                <span class="stepDesc">
+                                    Sign up<br />
+                                    <small></small>
+                                </span>
+                            </a>
+                        </li>
+                        <!--<li>
+                            <a href="#step-4">
+                                <label class="stepNumber">4</label>
+                                <span class="stepDesc">
+                                    Submit<br />
+                                    <small>Submit all information</small>
+                                </span>
+                            </a>
+                        </li>-->
+                    </ul>
+                    <div id="step-1" style="height: 600px;">
+                        <h2 class="StepTitle">Investeringsprofil</h2>
+                        @Html.Partial("ProfileControl", Model.ProfileModel)
+                    </div>
+                    <div id="step-2" style="height: 600px;">
+                        <h2 class="StepTitle">Optimal investering</h2>
+                        @Html.Partial("PortfolioControl", new SkynetInvestor.Models.PortfolioModel { })
+                    </div>
+                    <div id="step-3" style="height: 600px;">
+                        <h2 class="StepTitle">Sign up</h2>
+                        @Html.Partial("SignUpControl", null)
+                    </div>
+                    <!--<div id="step-4" style="height: 600px;">
+                        <h2 class="StepTitle">Step 4: Submit</h2>
+                        @Html.Partial("SubmitControl", null)
+                    </div>-->
+                </div>
+                <!-- End SmartWizard Content -->
+            </form>
+
+        </td>
+    </tr>
+</table>
+

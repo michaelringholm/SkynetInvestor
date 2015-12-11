@@ -1,0 +1,28 @@
+﻿@model SkynetInvestor.Models.TransactionDetailsControlModel
+
+@if(Model.TransactionDetailItems != null && Model.TransactionDetailItems.Count > 0)
+{ 
+    <div style="margin-left: 14px; margin-top: 8px; font-weight: bold;">
+        <div style="float: left; width: 100px;">Acronym</div>
+        <div style="float: left; width: 100px;">Buy/Sell Code</div>
+        <div style="float: left; width: 100px;">Count</div>
+        <div style="float: left; width: 100px;">Amount</div>
+        <div style="clear: both;"></div>
+        <div style="width: 400px; height: 1px; background-color: #808080;"></div>
+    </div>
+}
+
+ @foreach (var item in Model.TransactionDetailItems)
+{
+    if (item.Acronym != null && item.Amount > 0 && item.BuySellCode != null && item.Count > 0)
+    {
+        <div style="margin-left: 14px; margin-top: 14px;">
+            <div style="float: left; width: 100px;">@item.Acronym</div>
+            <div style="float: left; width: 100px;">@item.BuySellCode</div>
+            <div style="float: left; width: 100px;">@item.Count</div>
+            <div style="float: left; width: 100px;">@item.Amount EUR</div>
+            <div style="clear: both;"></div>
+            <div style="width: 400px; height: 1px; background-color: #808080;"></div>
+        </div>
+    }
+}   

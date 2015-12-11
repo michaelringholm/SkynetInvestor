@@ -1,0 +1,31 @@
+﻿@model SkynetInvestor.Models.TradedPortfoliosModel
+
+@section Scripts {
+
+}
+
+@{
+    ViewBag.Title = "TradedPortfoliosView";
+}
+
+
+@{
+    ViewBag.Title = "TradedPortfolios";
+}
+
+<h2>Traded Portfolio</h2>
+
+@{var portfolio = Model.SkynetUser.Portfolio;}
+
+<div style="margin-top: 14px; border: solid 1px; width: 300px; padding: 10px;">
+    <div style="margin-top: 4px; margin-bottom: 4px;"><span style="font-weight: bold;">Trade date:</span>&nbsp;@portfolio.TradeDate</div>
+    <div style="float: left; width: 120px; font-weight: bold;">Acronym</div>
+    <div style="float: left; width: 120px; font-weight: bold;">Percentage</div>
+    <div style="clear:both;"></div>
+    @foreach (var asset in portfolio.Assets)
+    {
+        <div style="float: left; width: 120px;">@asset.Acronym</div>
+        <div style="float: left; width: 120px;">@asset.Percentage</div>
+        <div style="clear:both;"></div>
+    }
+</div>

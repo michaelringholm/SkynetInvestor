@@ -1,0 +1,46 @@
+﻿@using OpusMagus.WizardManager
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#pbAcceptDisclaimer").click(function () { window.location.href = "/Home/Demo"; });
+            $("#pbDeclineDisclaimer").click(function () { window.location.href = "/Home"; });
+            //getRDataAsync(80, 5, PopulateHistoricalPerformanceChart);
+        });
+    </script>
+}
+
+@{
+    ViewBag.Title = "BetterWealthSolution - Ansvarsfraskrivelse";
+}
+
+<div style="margin-top: 12px; margin-bottom: 12px; font-size: 14pt; font-family: Calibri; width: 620px; text-align: justify;">
+    <span style="font-weight: bold; font-size: 14pt;">Jeg godkender følgende ansvarsfraskrivelse:</span>
+    BetterWealthSolutions ApS påtager sig intet ansvar for eventuelle tab eller skader som følge af indholdet på dette websted eller tredjemands brug heraf, 
+    hvad enten dette skyldes fejl eller uhensigtsmæssigheder i indholdet eller andre årsager.
+    <br /><br />
+
+    <span style="font-weight: bold; font-size: 14pt;">Jeg godkender følgende regler om ophavsret:</span>
+    BetterWealthSolutions ApS har retten til domænet <a href="www.betterwealthsolutions.dk" style="color: black;">www.betterwealthsolutions.dk</a> og ophavsretten til indholdet herpå i henhold til ophavsretsloven, 
+    medmindre andet udtrykkeligt er aftalt i konkrete tilfælde. Ophavsretten omfatter alt indhold, der er publiceret på webstedet, 
+    uanset om indholdet efterfølgende er slettet eller ændret.<br/><br />
+
+    Det er tilladt vederlagsfrit at kopiere materiale fra webstedet –såvel elektronisk som i papirform –forudsat, at BetterWealthSolutions ApS udtrykkeligt 
+    anføres som kilde. Det er ikke tilladt at ændre eller forvanske indholdet.<br /><br />
+
+    Det er tilladt at oprette links –herunder dybe links –til webstedet forudsat, at der linkes direkte til BetterWealthSolutions ApS adresse, sådan at linket 
+    åbnes i en ny browser, hvor hele BetterWealthSolutions ApS webmiljø er bibeholdt. Sådanne links må dog under ingen omstændigheder bruges reklamemæssigt 
+    eller i lignende øjemed.<br /><br />
+
+    <span style="font-weight: bold; font-size: 14pt;">Jeg giver hermed min tilladelse til BetterWealthSolutions ApS</span> om at anvende de af mig afgivne oplysninger til 
+    salg-og markedføringsbrug, herunder at tage direkte kontakt til mig med gode tilbud, per brev, mail eller telefon.<br /><br />
+
+    <span style="font-weight: bold; font-size: 14pt;">Jeg er hermed indforstået med at ”Invest-tjek” ikke er udtryk for investeringsrådgivning</span>, og at BetterWealthSolutions ApS ikke har noget ansvar for
+    eventuelle tab eller skader som følge af indholdet på denne side.
+    <br /><br />
+    <div id="pbAcceptDisclaimer" class="pushButton" style="float:left; width: 120px;">Jeg accepterer</div>
+    <div id="pbDeclineDisclaimer" class="pushButton" style="float: left; margin-left: 10px; width: 120px;">Jeg afslår</div>
+<div style="clear: both;"></div>
+</div>
+
+

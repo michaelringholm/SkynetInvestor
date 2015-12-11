@@ -1,0 +1,141 @@
+﻿@model SkynetInvestor.Models.MemberModel
+
+@{if(Model != null && Model.SkynetUser != null && Model.SkynetUser.PersonalInfo != null)
+    {
+       <div id="MembersPersonalInfoDiv" style="border: solid 2px; border-radius: 6px; width: 856px; height: 170px; margin-top: 12px;">
+    <div style="float: left; margin-top: 12px;">
+        <img src="/Content/images/Users-Folder-Black-icon-128.png" />
+    </div>
+    <div style="width: 300px; height: 160px; margin-top: 12px; margin-left: 12px; overflow: auto; float: left;">
+        <table>
+            <tr>
+                <td>
+                    Full Name:
+                </td>
+                <td><input type="text" id="tbFullName" value="@Model.SkynetUser.PersonalInfo.FullName" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Address Line:
+                </td>
+                <td><input type="text" id="tbAddressLine" value="@Model.SkynetUser.PersonalInfo.AddressLine" /></td>
+            </tr>
+            <tr>
+                <td>
+                    City:
+                </td>
+                <td><input type="text" id="tbCity" value="@Model.SkynetUser.PersonalInfo.City" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Zip Code:
+                </td>
+                <td><input type="text" id="tbZipCode" value="@Model.SkynetUser.PersonalInfo.ZipCode" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="btnMemberSavePersonalInfo" class="button">Save</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 300px; height: 160px; margin-top: 12px; margin-left: 12px; overflow: auto; float: left;">
+        <table>
+            <tr>
+                <td>
+                    Country:
+                </td>
+                <td><input type="text" id="tbCountry" value="@Model.SkynetUser.PersonalInfo.Country" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number:
+                </td>
+                <td><input type="text" id="tbPhoneNumber" value="@Model.SkynetUser.PersonalInfo.PhoneNumber" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td><input type="text" id="tbEmail" value="@Model.SkynetUser.PersonalInfo.Email" /></td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+    }
+ }
+
+<div style="border: solid 2px; border-radius: 6px; width: 856px; height: 230px; margin-top: 12px;">
+    <div style="float: left; margin-top: 12px; width: 128px;">
+        <img src="/Content/images/e-mail-2-icon-128.png" />
+    </div>
+    <div style="width: 710px; height: 200px; margin-top: 12px; margin-left: 12px; float: left; overflow: auto;">
+        <table>
+            <tr class="memberEmailItem" data-email-id="1">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td style="width: 200px;">Email 1</td>
+                <td style="width: 140px;">2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="2">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 2</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="3">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 3</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="4">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 4</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="5">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 5</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="6">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 6</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+            <tr class="memberEmailItem" data-email-id="7">
+                <td>
+                    <img src="/Content/images/Filetype-Text-icon-32.png" />
+                </td>
+                <td>Email 7</td>
+                <td>2014-01-01</td>
+                <td>Unread</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="clear: both;"></div>
+<!-- bottom block -->
+<div style="border: solid 2px; border-radius: 6px; width: 856px; height: 230px; margin-top: 12px;">
+    <div style="padding: 10px; height: 200px; width: 828px; overflow: auto;" id="MembersEmailText">
+        <div style="margin-top: 12px; margin-left: 12px; font-style: italic; color: #808080;">&lt;Please click an email to read its contents.&gt;</div>
+    </div>
+</div>
+<div style="clear: both;"></div>

@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "Finish";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnSubmitFeedback").click(function () { SubmitFeedback(); });
+        });
+    </script>
+}
+
+<div style="height: 40px;">
+    <h2>Feedback survey</h2>
+</div>
+<div style="margin-top: 12px; margin-bottom: 12px; font-size: 14pt; font-family: Calibri; width: 930px; text-align: justify; height: 700px;">
+    <div style="float: left; width: 606px; overflow: auto; height: 700px; ">
+        <div style="margin-top: 12px;">
+            Dear visitor
+        </div>
+        <div style="margin-top: 12px;">
+            Your feedback is greatly appreciated. Please help us developing a world-class site by taking
+            this small survey. It should only take you 5 minutes. When you are finished please press
+            submit.
+        </div>
+        <div style="margin-top: 12px;">
+            Very much appreciated.
+        </div>
+        <div style="margin-top: 12px; font-style: italic; font-weight: bold;">
+            Better Wealth Solutions Team
+        </div>
+        <div style="margin-top: 30px; background-color: rgb(245, 245, 245); padding: 10px;">
+            <div style="font-weight: bold;">
+                Please tell us a little about yourself:
+            </div>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input id="fullName" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input id="age" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input id="phone" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Mail:</td>
+                    <td><input id="mail" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Occupation:</td>
+                    <td><input id="occupation" type="text" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 30px; background-color: rgb(245, 245, 245); padding: 10px;">
+            <table style="font-size: 8pt;">
+                <tr>
+                    <td colspan="5">
+                        Computer skill level
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="rbComputerSkillLevel" value="Poor" />Poor</td>
+                    <td><input type="radio" name="rbComputerSkillLevel" value="Fair" />Fair</td>
+                    <td><input type="radio" name="rbComputerSkillLevel" value="Average" />Average</td>
+                    <td><input type="radio" name="rbComputerSkillLevel" value="Good" />Good</td>
+                    <td><input type="radio" name="rbComputerSkillLevel" value="Hardcore" />Hardcore</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        Investing skill level
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="rbInvestingSkillLevel" value="Novice" />Novice</td>
+                    <td><input type="radio" name="rbInvestingSkillLevel" value="Fair" />Fair</td>
+                    <td><input type="radio" name="rbInvestingSkillLevel" value="Average" />Average</td>
+                    <td><input type="radio" name="rbInvestingSkillLevel" value="Good" />Good</td>
+                    <td><input type="radio" name="rbInvestingSkillLevel" value="Expert" />Expert</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        How do you invest?
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="rbInvestmentStrategy" value="I don’t" />I don’t</td>
+                    <td><input type="radio" name="rbInvestmentStrategy" value="Self-trading" />Self-trading</td>
+                    <td><input type="radio" name="rbInvestmentStrategy" value="Adviser/dealer" />Adviser/dealer</td>
+                    <td><input type="radio" name="rbInvestmentStrategy" value="Invest fund" />Invest fund</td>
+                    <td><input type="radio" name="rbInvestmentStrategy" value="Independent adviser" />Independent adviser</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        Preferred partner
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="rbPreferredPartner" value="Bank" />Bank</td>
+                    <td><input type="radio" name="rbPreferredPartner" value="Broker" />Broker</td>
+                    <td><input type="radio" name="rbPreferredPartner" value="Investment Company" />Investment Company</td>
+                    <td><input type="radio" name="rbPreferredPartner" value="Fund Manager" />Fund Manager</td>
+                    <td><input type="radio" name="rbPreferredPartner" value="Trading platform" />Trading platform</td>
+                </tr>
+            </table>
+         </div>
+
+        <div style="margin-top: 30px; background-color: rgb(245, 245, 245); padding: 10px;">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Rubbish</td>
+                    <td>Poor</td>
+                    <td>Average</td>
+                    <td>Good</td>
+                    <td>Fantastic</td>
+                </tr>
+                <tr>
+                    <td>1. How easy was it to understand the content and returned results?</td>
+                    <td><input type="radio" name="rbUnderstandContent" value="Rubbish" /></td>
+                    <td><input type="radio" name="rbUnderstandContent" value="Poor" /></td>
+                    <td><input type="radio" name="rbUnderstandContent" value="Average" /></td>
+                    <td><input type="radio" name="rbUnderstandContent" value="Good" /></td>
+                    <td><input type="radio" name="rbUnderstandContent" value="Fantastic" /></td>
+                </tr>
+                <tr>
+                    <td>2. How easy was it to navigate on the site?</td>
+                    <td><input type="radio" name="rbNavigation" value="Rubbish" /></td>
+                    <td><input type="radio" name="rbNavigation" value="Poor" /></td>
+                    <td><input type="radio" name="rbNavigation" value="Average" /></td>
+                    <td><input type="radio" name="rbNavigation" value="Good" /></td>
+                    <td><input type="radio" name="rbNavigation" value="Fantastic" /></td>
+                </tr>
+                <tr>
+                    <td>3. How easy was it to find information on the site?</td>
+                    <td><input type="radio" name="rbEasyInformation" value="Rubbish" /></td>
+                    <td><input type="radio" name="rbEasyInformation" value="Poor" /></td>
+                    <td><input type="radio" name="rbEasyInformation" value="Average" /></td>
+                    <td><input type="radio" name="rbEasyInformation" value="Good" /></td>
+                    <td><input type="radio" name="rbEasyInformation" value="Fantastic" /></td>
+                </tr>
+                <tr>
+                    <td>4. How easy was it to stay motivated on the site?</td>
+                    <td><input type="radio" name="rbSiteMotivation" value="Rubbish" /></td>
+                    <td><input type="radio" name="rbSiteMotivation" value="Poor" /></td>
+                    <td><input type="radio" name="rbSiteMotivation" value="Average" /></td>
+                    <td><input type="radio" name="rbSiteMotivation" value="Good" /></td>
+                    <td><input type="radio" name="rbSiteMotivation" value="Fantastic" /></td>
+                </tr>
+                <tr>
+                    <td>5. How would you rate this site overall?</td>
+                    <td><input type="radio" name="rbOverallRating" value="Rubbish" /></td>
+                    <td><input type="radio" name="rbOverallRating" value="Poor" /></td>
+                    <td><input type="radio" name="rbOverallRating" value="Average" /></td>
+                    <td><input type="radio" name="rbOverallRating" value="Good" /></td>
+                    <td><input type="radio" name="rbOverallRating" value="Fantastic" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 30px; background-color: rgb(245, 245, 245); padding: 10px;">
+            <div style="font-weight: bold;">Comment section:</div>
+            <table style="margin-top: 12px;">
+                <tr>
+                    <td>6. What did you like the best?</td>
+                    <td><input id="tbBestStuff" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>7. Did anything confuse or frustrate you?</td>
+                    <td><input id="tbConfusingStuff" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>8. Did you miss something?</td>
+                    <td><input id="tbMissSomething" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>9. Is there anything else you would change to improve the site?</td>
+                    <td><input id="tbWhatToImprove" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>10. Would you recommend the site to friends and family?</td>
+                    <td><input id="tbRecommendSite" type="text" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="btnSubmitFeedback" class="button" style="margin-top: 12px;">Submit</div>
+        <div style="margin-top: 12px; font-style: italic;">Thank you for taking the time to help us!</div>
+            
+    </div>
+    <div style="float: left; width: 300px; margin-left: 24px;"><img src="/Content/images/business-woman-handshake-deal1.jpg" style="width: 300px;" /></div>
+    <div style="clear: both;"></div>
+</div>

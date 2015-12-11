@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OpenCPU demo app</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!-- ocpu library -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+    <script src="https://www.opencpu.org/js/archive/opencpu-0.4.js"> </script>
+    <script>
+        // location of R function on openCPU server
+        //ocpu.seturl("//public.opencpu.org/ocpu/library/stocks/R")
+        ocpu.seturl("https://public.opencpu.org/ocpu/github/Bjerring/RISpackage2/R")
+        //init this script when the page has loaded
+        $(document).ready(function () {
+            $("#submitbutton").on("click", function () {
+                //disable the button to prevent multiple clicks
+                $("#submitbutton").attr("disabled", "disabled");
+
+                //read the values for 'score' and 'Cno'
+                var score = $("#score").val();
+                var Cno = $("#Cno").val();
+
+                //perform the request
+                var req = ocpu.rpc("wrap", {
+                    score: score,
+                    Cno: Cno
+                }, function (out) {
+                    var rawRData = $.parseJSON(out);                    
+
+                    for (i = 0; i < rawRData.length; i++) {
+                        alert(rawRData[i]);
+                    }
+
+                    $("#out").text(out);
+                });
+
+                //if R returns an error, alert the error message
+                req.fail(function () {
+                    alert("Server error: " + req.responseText);
+                });
+
+                //after request complete, re-enable the button
+                req.always(function () {
+                    $("#submitbutton").removeAttr("disabled")
+                });
+            });
+        });
+    </script>
+    <style>
+        #output {
+            height: 80px;
+            width: 500px;
+            border: 1px solid gray;
+            padding: 3px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>SkyNet - the first signs of life...</h1>
+
+    <b>MiFID score</b> <input type="number" value="80" id="score">
+    <b>Number of ETFs</b> <input type="number" value="3" id="Cno">
+
+    <button id="submitbutton" type="button">Submit to server!</button>
+
+    <p id="out"></p>
+
+
+</body>
+</html>

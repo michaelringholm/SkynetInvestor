@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/Site.css")
+    @Styles.Render("~/Content/skynet-theme/jquery-ui-1.10.4.custom.min.css")
+    @Styles.Render("~/Content/css/smart_wizard.css")
+    @Styles.Render("~/Content/css/tablesorter/style.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>       
+    <div class="headerBar" style="">
+        <div style="float: left; width: 110px; margin-left: 8px; margin-top: 8px;">
+            <div style="font-weight: bold; text-transform: uppercase; font-size:11pt;">Date</div>
+            <div style="font-size: 16pt; font-weight: normal; font-style: italic;">@DateTime.Now.ToShortDateString()</div>
+        </div>
+        <div style="float: left; width: 80px; margin-left: 12px; margin-top: 8px;">
+            <div style="font-weight: bold; text-transform: uppercase; font-size:11pt;">Time</div>
+            <div style="font-size: 16pt; font-weight: normal; font-style: italic; width: 50px; height: 24px; overflow: hidden">@DateTime.Now.ToShortTimeString() GMT+2</div>
+        </div>
+        <div style="float: left; width: 80px; margin-left: 12px; margin-top: 8px;">
+            <div style="font-weight: bold; text-transform: uppercase; font-size:11pt;">Mifid Score</div>
+            <div style="font-size: 16pt; font-weight: normal; font-style: italic;" id="mifidScore">N/A</div>
+        </div>
+        <div style="float: left; width: 314px; font-size: 24px; margin-top: 12px; margin-left: 100px; font-weight: bold; text-transform: uppercase;"><img src="~/Content/images/bws-logo.png" style="width: 400px;" /></div>
+        <div style="float: right; width: 140px; margin-top: 8px; margin-right: 8px; text-align:right;">
+            <div style="font-weight: bold; text-transform: uppercase; font-size:11pt;">Welcome</div>
+            <div style="font-size: 16pt; font-weight: normal;">@Html.Partial("_LoginPartial")</div>
+        </div>
+        <div style="float: none;"></div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()      
+        <div id="statusBar"></div>  
+    </div>
+    
+    <footer>        
+        <div style="float: left; margin-top: 12px; margin-left: 14px;">&copy; @DateTime.Now.Year - Skynet Investor</div>
+        <div style="float:right; margin-top: 12px;margin-right: 12px;"><a href="/Home/Index">Home</a></div>   
+        <div style="float:right; margin-top: 12px;margin-right: 12px;"><a href="/Home/Methodology">Methodology</a></div>   
+        <div style="float:right; margin-top: 12px;margin-right: 12px;"><a href="/Home/Contact">Who we are</a></div>   
+        <div style="float:right; margin-top: 12px;margin-right: 12px;"><a href="/Home/FAQ">FAQ</a></div>   
+        @if (Request.IsAuthenticated)
+        {
+            <div style="float:right; margin-top: 12px;margin-right: 12px;">&nbsp;|&nbsp;</div>
+            <div style="float:right; margin-top: 12px;margin-right: 12px;"><a href="/Home/RedoMifid">Redo Mifid</a></div>
+            <!--<div style="float:right; margin-top: 12px;margin-right: 12px;"><a id="btnShowTradedPortfolios" href="/Home/TradedPortfolios">Traded portfolios</a></div>-->
+            <div style="float:right; margin-top: 12px;margin-right: 12px;"><a id="btnShowGraphs" href="/Members/Home">Members</a></div>              
+        }
+        <div style="clear: both;"></div>
+    </footer>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/jquery-2.0.0.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.10.4.custom.min.js")
+    @Scripts.Render("~/Scripts/jquery.steps.min.js")    
+    @Scripts.Render("~/Scripts/jquery.smartWizard.js")
+    @Scripts.Render("~/Scripts/highcharts/js/highcharts.js")
+    @Scripts.Render("~/Scripts/highcharts/js/highcharts-more.js")
+    @Scripts.Render("~/Scripts/highcharts/js/modules/exporting.js")
+    @Scripts.Render("~/Scripts/highcharts/js/modules/heatmap.js")
+    @Scripts.Render("~/Scripts/highcharts/js/modules/solid-gauge.js")
+    @Scripts.Render("~/Scripts/jquery.tablesorter.min.js")
+    @Scripts.Render("~/Scripts/custom/main.js")
+    @Scripts.Render("~/Scripts/custom/highcharts_helper.js")
+    @Scripts.Render("~/Scripts/custom/sac.js")
+    @Scripts.Render("~/Scripts/thirdparty/opencpu-0.4.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
